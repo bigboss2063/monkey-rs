@@ -1,5 +1,6 @@
 use crate::token::Token;
 
+#[derive(Clone)]
 pub struct Lexer {
     input: String,
     position: usize,
@@ -38,7 +39,7 @@ impl Lexer {
                 '=' => {
                     self.read_char();
                     Token::EQ
-                },
+                }
                 _ => Token::ASSIGN,
             },
             ';' => Token::SEMICOLON,
@@ -53,7 +54,7 @@ impl Lexer {
                 '=' => {
                     self.read_char();
                     Token::NQ
-                },
+                }
                 _ => Token::BANG,
             },
             '*' => Token::ASTERISK,
